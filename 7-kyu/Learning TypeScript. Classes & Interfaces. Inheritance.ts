@@ -64,42 +64,39 @@ interface IAnimal {
   legs: number;
   species: string;
   status: string;
-  introduce: () => void;
+  introduce: () => string;
 }
-
-export class Animal implements IAnimal {
+export class Animal implements IAnimal{
   constructor(
-    public name,
-    public age,
-    public legs,
-    public species,
-    public status
-  ) {}
-  introduce() {
-    return `Hello, my name is ${this.name} and I am ${this.age} years old.`;
+  public name,
+  public age,
+  public legs,
+  public species,
+  public status
+  ){}
+  
+  introduce(){
+    return `Hello, my name is ${this.name} and I am ${this.age} years old.`
   }
 }
-
-export class Shark extends Animal {
-  constructor(name, age, status) {
-    super(name, age, 0, 'shark', status);
+export class Shark extends Animal{
+  constructor(name,age,status){
+    super(name,age,0,'shark',status)
   }
 }
-
-export class Cat extends Animal {
-  constructor(name, age, status) {
-    super(name, age, 4, 'cat', status);
+export class Cat extends Animal{
+  constructor(name,age,status){
+    super(name,age,4,'cat',status)
   }
-  introduce() {
-    return `${super.introduce()}  Meow meow!`;
+  introduce():string{
+    return `${super.introduce()}  Meow meow!`
   }
 }
-
-export class Dog extends Animal {
-  constructor(name, age, status, public master: string) {
-    super(name, age, 4, 'dog', status);
+export class Dog extends Animal{
+  constructor(name,age,status,public master:string){
+    super(name,age,4,'dog',status)
   }
-  greetMaster() {
-    return `Hello ${this.master}`;
+  greetMaster():string{
+    return `Hello ${this.master}`
   }
 }
